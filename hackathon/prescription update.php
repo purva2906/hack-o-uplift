@@ -1,0 +1,130 @@
+<?php
+error_reporting(0);
+$link=mysqli_connect("localhost","root","","e-prescription");
+if($link->connect_error){
+    die("Connection Error".$link->connect_error);
+}
+
+$sql1="SELECT * FROM prescription ";
+$conn=mysqli_query($link,$sql1);
+?>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>E-Prescription</title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> 
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Quicksand&display=swap" rel="stylesheet">
+  <!-- bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <!-- ext css -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style1.css">
+</head>
+
+<body>
+
+  <section id="title">
+    <img src="https://img.freepik.com/free-vector/medicine-pharmacy_131590-145.jpg?size=626&ext=jpg" alt="medicines" class="medicine-img">
+    <h1 class="site-title">E - Prescription Site</h1>
+  </section>
+  <?php 
+    while($row=mysqli_fetch_array($conn)){
+  ?>
+  <button type="submit" class="btn btn-primary " onclick="generate_pdf()">Download Prescription</button>
+  <div class="container" id="content">
+    <header class="row">
+      <div class="col-5">
+        <div class="doc-details">
+          <p class="doc-name"><?php echo $row["HospitalName"]; ?></p>
+          <p class="doc-meta">Doctor's Name:<?php echo $row["DoctorName"]; ?> </p>
+          <p class="doc-meta">Doctor's Qualification: <?php echo $row["Qualification"]; ?> </p>
+          <p class="doc-meta">Doctor's Email: <?php echo $row["Email"]; ?> </p>
+          <p class="doc-meta">Doctor's Number: <?php echo $row["Number"]; ?> </p>
+        </div>
+  
+        <div class="clinic-details">
+          <p class="doc-meta">Hospital Address: <?php echo $row["Address"]; ?></p>
+        </div>
+  
+      </div>
+      <div class="col-2 datetime">
+        <p>Date: 18/03/16</p>
+        <p>Time: 03:13</p>
+      </div>
+    </header>
+    <div class="prescription">
+      <p style="margin-left:15px;font-size:10px;font-weight:bold;"> Name of patient, Gender/Age</p>    
+        <table>
+     <tr>
+      <th></th>
+       <th>Type</th>
+      <th>Name of the drug</th>
+      <th>Dosage</th>
+      <th>Frequency</th>
+      <th>Period</th>
+     </tr>
+     <tr>
+      <td>1.</td>
+      <td>Tablet</td>
+      <td>Brufen Brufen Brufen</td>
+      <td>400 mg</td>
+      <td>1 - 0 - 1</td>
+      <td>10 days</td>
+     </tr>
+           <tr>
+      <td>2.</td>
+      <td>Lotion</td>
+      <td>Brufen</td>
+      <td>400 mg</td>
+      <td>1 - 0 - 1</td>
+      <td>10 days</td>
+     </tr>
+          
+                   <tr>
+      <td>3.</td>
+      <td>Syrub</td>
+      <td>Brufen</td>
+      <td>400 mg</td>
+      <td>1 - 0 - 1</td>
+      <td>10 days</td>
+     </tr>
+          
+      <tr>
+      <td>4.</td>
+      <td>Oil</td>
+      <td>Brufen</td>
+      <td>400 mg</td>
+      <td>1 - 0 - 1</td>
+      <td>10 days</td>
+     </tr>
+  
+    </table>
+      
+
+    </div>
+    </br>
+    <img src="index.png"/>
+    <p style="font-size:9px;text-align:right;padding-bottom:15px;padding-right:25px;">Doctor's Signature</p>
+    <p style="font-size:6px;text-align:center;padding-bottom:20px;">This is a digitally generated Prescription</p>
+  </div>
+ <?php }?>
+    
+    
+    
+  
+</body>
+<script>
+  function generate_pdf(){
+    var prescribe=document.getElementById("content").innerHTML;
+    var win=window.open(",","height=700,width=700");
+    win.document.write(prescribe);
+    win.document.close();
+    win.print();
+
+}
+</script>
+</html>
