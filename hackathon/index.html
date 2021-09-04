@@ -29,48 +29,48 @@
   <section id="middle">
 
 
-    <form class="row g-3 doctor-details" action="prescription.html" method="post">
+    <form class="row g-3 doctor-details" method="post" action="presDetails.php" enctype="multipart/form-data">
       <h1 class="details">DOCTOR DETAILS-</h1>
       <div class="col-md-6">
         <label for="inputDrName" class="form-label">Doctor Name:</label>
-        <input type="text" class="form-control" id="inputDrName">
+        <input type="text" class="form-control" id="inputDrName" name="doctorName">
       </div>
       <div class="col-md-6">
         <label for="inputQual" class="form-label">Qualification:</label>
-        <input type="text" class="form-control" id="inputQual">
+        <input type="text" class="form-control" id="inputQual" name="doctorQual">
       </div>
 
       <div class="col-md-6">
         <label for="inputHospName" class="form-label">Hospital Name:</label>
-        <input type="text" class="form-control" id="inputHospName">
+        <input type="text" class="form-control" id="inputHospName" name="hospName">
       </div>
       <div class="col-md-6">
         <label for="inputAdd" class="form-label">Address:</label>
-        <input type="text" class="form-control" id="inputAdd">
+        <input type="text" class="form-control" id="inputAdd" name="hospAddress">
       </div>
 
       <div class="col-md-6">
         <label for="inputEmail" class="form-label">Email:</label>
-        <input type="email" class="form-control" id="inputEmail" placeholder="abcd@xyz.com">
+        <input type="email" class="form-control" id="inputEmail" placeholder="abcd@xyz.com" name="email">
       </div>
       <div class="col-md-6">
         <label for="inputNum" class="form-label">Number:</label>
-        <input type="number" class="form-control" id="inputNum" placeholder="Enter the country code. Ex: 910000000000">
+        <input type="number" class="form-control" id="inputNum" name="number" placeholder="Enter the country code. Ex: 910000000000">
       </div>
 
       <h1 class="details">PATIENT DETAILS-</h1>
 
       <div class="col-md-3">
         <label for="inputPatientName" class="form-label">Patient Name:</label>
-        <input type="text" class="form-control" id="inputPatientName">
+        <input type="text" class="form-control" id="inputPatientName" name="patientName">
       </div>
       <div class="col-md-3">
         <label for="inputAge" class="form-label">Age:</label>
-        <input type="number" class="form-control" id="inputAge">
+        <input type="number" class="form-control" id="inputAge" name="patientAge">
       </div>
       <div class="col-md-3">
-        <label for="inputWeight" class="form-label">Weight:</label>
-        <input type="number" class="form-control" id="inputWeigjt">
+        <label for="inputWeight" class="form-label">Weight (in kg):</label>
+        <input type="number" class="form-control" id="inputWeigjt" name="patientWeight">
       </div>
 
       <div class="med">
@@ -88,20 +88,20 @@
             <tr>
               <th scope="row">1</th>
               <td>
-                <input type="text" class="med-input medicine-name">
+                <input type="text" class="med-input medicine-name" name="medicineName">
               </td>
               <td>
-                <input type="text" class="med-input medicine-strength" placeholder="Specify mg/ml. Ex.:500mg">
+                <input type="text" class="med-input medicine-strength" placeholder="Specify mg/ml. Ex.:500mg" name="medStrength">
               </td>
               <td>
-                <input type="text" class="med-input medicine-dosage" placeholder="Ex.: 2 pills daily before lunch">
+                <input type="text" class="med-input medicine-dosage" placeholder="Ex.: 2 pills daily before lunch" name="medPills">
               </td>
               <td>
-                <input type="text" class="med-input medicine-duration" placeholder="Ex.: 1 month">
+                <input type="text" class="med-input medicine-duration" placeholder="Ex.: 1 month" name="medDuration">
               </td>
             </tr>
 
-            <tr>
+            <tr id="tableRow">
               <th scope="row">2</th>
               <td>
                 <input type="text" class="med-input medicine-name">
@@ -131,33 +131,35 @@
                 <input type="text" class="med-input medicine-duration" />
               </td>
             </tr>
+            
           </tbody>
         </table>
+        <div type="text" class="btn btn-primary" id="addMedicine" onclick="addColumn()">Add medicine</div>
       </div>
 
-  <div class="notes">
+        <div class="notes">
 
-    <div class="col-md-12">
-      <label for="inputNotes" class="form-label">Additional Notes:</label>
-      <br>
-      <input type="text" class="form-control" id="inputNotes" placeholder="Additional notes. Ex.: Allergies, etc.">
-    </div>
+          <div class="col-md-12">
+            <label for="inputNotes" class="form-label">Additional Notes:</label>
+            <br>           
+            <input type="text" class="form-control" id="inputNotes" placeholder="Additional notes. Ex.: Allergies, etc." name="notes">
+          </div>
 
-  </div>
-      <div class="col-12">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="gridCheck">
-          <label class="form-check-label" for="gridCheck">
-            The information provided in this form is correct and I, the doctor, am responsible for any fatality.
-          </label>
-          <label for="">Add a scanned copy of your signature as validation.</label>
-          <br>
-          <input type="file" class="sign" name="avatar" accept="image/png, image/jpeg">
         </div>
-      </div>
-      <div class="col-12">
-        <button type="submit" class="btn btn-primary">Get Prescription</button>
-      </div>
+            <div class="col-12">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="gridCheck">
+                <label class="form-check-label" for="gridCheck">
+                  The information provided in this form is correct and I, the doctor, am responsible for any fatality.
+                </label>
+                <label for="">Add a scanned copy of your signature as validation.</label>
+                <br>
+                <input type="file" class="sign" name="doctor_sign" accept="image/png,image/jpeg,image/jpg"/>
+              </div>
+            </div>
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary" name="getpres">Get Prescription</button>
+            </div>
 
     </form>
   </section>
@@ -170,5 +172,12 @@
 
   </script>
 </body>
+<script>
+  function addColumn(){
+    tableRow=document.getElementById("tableRow").innerHTML;
+    document.querySelector(".table").innerHTML+=tableRow;
+  }
+</script>
+
 
 </html>
