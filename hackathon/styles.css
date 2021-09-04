@@ -1,0 +1,78 @@
+body{
+  background-color: #dbf3fa;
+  font-family: 'Quicksand', sans-serif;
+  text-align: center;
+}
+  /* <h1 class="details">DOCTOR DETAILS-</h1> */
+.details{
+  margin: 4% 0 2%;
+}
+
+/* TITLE SECTION  */
+#title{
+  background-color: #fff;
+  display: block;
+  margin: 0;
+  padding: 3% 3% 5.5% 3%;
+  text-align: left;
+}
+
+/* h1 in the title */
+.site-title{
+  margin-top: 2%;
+}
+
+/* the medicine img in the title */
+.medicine-img{
+  height: 10%;
+  width: 10%;
+  float: left;
+  margin-left: 25%;
+  margin-right: 3%;
+}
+/* TITLE ENDS */
+
+/* MIDDLE SECTION */
+#middle{
+  margin: 5% 10%;
+  text-align: left;
+}
+
+label{
+  font-size: 1.2rem;
+}
+
+/* the medicines table */
+.med{
+  background-color: white;
+  border-radius: 20px;
+  margin-top: 2%;
+  padding: 2%;
+
+}
+
+/* input of medicines entered by the doctor */
+.med-input{
+  border: none;
+  border-bottom: 2px solid black;
+}
+
+/* check button at the end of the form */
+.form-check{
+  margin-top: 3%;
+}
+
+/* signature of doctor */
+ .sign{
+   margin: 3% 0;
+ }
+/* MIDDLE END */
+
+/* PRESCRIPTION SECTION*/
+#prescription{
+  font-family: 'Caveat', cursive;
+  font-size: 2rem;
+  text-align: center;
+  padding: 2%;
+
+}

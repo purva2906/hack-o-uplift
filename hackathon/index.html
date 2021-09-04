@@ -1,0 +1,174 @@
+<!-- THIS PAGE: here the details are entered. once the "submit" is clicked redirect to 4prescription page -->
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>E-Prescription</title>
+   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> 
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Quicksand&display=swap" rel="stylesheet">
+  <!-- bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <!-- ext css -->
+  <link rel="stylesheet" href="styles.css">
+
+
+</head>
+
+<body>
+
+  <section id="title">
+    <img src="https://img.freepik.com/free-vector/medicine-pharmacy_131590-145.jpg?size=626&ext=jpg" alt="medicines" class="medicine-img">
+    <h1 class="site-title">E - Prescription Site</h1>
+  </section>
+
+  <section id="middle">
+
+
+    <form class="row g-3 doctor-details" action="prescription.html" method="post">
+      <h1 class="details">DOCTOR DETAILS-</h1>
+      <div class="col-md-6">
+        <label for="inputDrName" class="form-label">Doctor Name:</label>
+        <input type="text" class="form-control" id="inputDrName">
+      </div>
+      <div class="col-md-6">
+        <label for="inputQual" class="form-label">Qualification:</label>
+        <input type="text" class="form-control" id="inputQual">
+      </div>
+
+      <div class="col-md-6">
+        <label for="inputHospName" class="form-label">Hospital Name:</label>
+        <input type="text" class="form-control" id="inputHospName">
+      </div>
+      <div class="col-md-6">
+        <label for="inputAdd" class="form-label">Address:</label>
+        <input type="text" class="form-control" id="inputAdd">
+      </div>
+
+      <div class="col-md-6">
+        <label for="inputEmail" class="form-label">Email:</label>
+        <input type="email" class="form-control" id="inputEmail" placeholder="abcd@xyz.com">
+      </div>
+      <div class="col-md-6">
+        <label for="inputNum" class="form-label">Number:</label>
+        <input type="number" class="form-control" id="inputNum" placeholder="Enter the country code. Ex: 910000000000">
+      </div>
+
+      <h1 class="details">PATIENT DETAILS-</h1>
+
+      <div class="col-md-3">
+        <label for="inputPatientName" class="form-label">Patient Name:</label>
+        <input type="text" class="form-control" id="inputPatientName">
+      </div>
+      <div class="col-md-3">
+        <label for="inputAge" class="form-label">Age:</label>
+        <input type="number" class="form-control" id="inputAge">
+      </div>
+      <div class="col-md-3">
+        <label for="inputWeight" class="form-label">Weight:</label>
+        <input type="number" class="form-control" id="inputWeigjt">
+      </div>
+
+      <div class="med">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Sr. No.</th>
+              <th scope="col">Medicine Name</th>
+              <th scope="col">Strength</th>
+              <th scope="col">Dosage</th>
+              <th scope="col">Duration</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>
+                <input type="text" class="med-input medicine-name">
+              </td>
+              <td>
+                <input type="text" class="med-input medicine-strength" placeholder="Specify mg/ml. Ex.:500mg">
+              </td>
+              <td>
+                <input type="text" class="med-input medicine-dosage" placeholder="Ex.: 2 pills daily before lunch">
+              </td>
+              <td>
+                <input type="text" class="med-input medicine-duration" placeholder="Ex.: 1 month">
+              </td>
+            </tr>
+
+            <tr>
+              <th scope="row">2</th>
+              <td>
+                <input type="text" class="med-input medicine-name">
+              </td>
+              <td>
+                <input type="text" class="med-input medicine-strength">
+              </td>
+              <td>
+                <input type="text" class="med-input medicine-dosage">
+              </td>
+              <td>
+                <input type="text" class="med-input medicine-duration">
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>
+                <input type="text" class="med-input medicine-name">
+              </td>
+              <td>
+                <input type="text" class="med-input medicine-strength">
+              </td>
+              <td>
+                <input type="text" class="med-input medicine-dosage">
+              </td>
+              <td>
+                <input type="text" class="med-input medicine-duration" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+  <div class="notes">
+
+    <div class="col-md-12">
+      <label for="inputNotes" class="form-label">Additional Notes:</label>
+      <br>
+      <input type="text" class="form-control" id="inputNotes" placeholder="Additional notes. Ex.: Allergies, etc.">
+    </div>
+
+  </div>
+      <div class="col-12">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="gridCheck">
+          <label class="form-check-label" for="gridCheck">
+            The information provided in this form is correct and I, the doctor, am responsible for any fatality.
+          </label>
+          <label for="">Add a scanned copy of your signature as validation.</label>
+          <br>
+          <input type="file" class="sign" name="avatar" accept="image/png, image/jpeg">
+        </div>
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary">Get Prescription</button>
+      </div>
+
+    </form>
+  </section>
+
+
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+  <!-- js -->
+  <script src="index.js">
+
+  </script>
+</body>
+
+</html>
