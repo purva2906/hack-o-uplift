@@ -1,9 +1,10 @@
 <?php
+session_start();
+error_reporting(0);
 $link=mysqli_connect("localhost","root","","e-prescription");
 if($link->connect_error){
     die("Connection Error".$link->connect_error);
 }
-if(isset($_POST["getpres"])){
     $doctorname=mysqli_real_escape_string($link,$_POST["doctorName"]);
 $doctorQual=mysqli_real_escape_string($link,$_POST["doctorQual"]);
 $hospName=mysqli_real_escape_string($link,$_POST["hospName"]);
@@ -24,18 +25,14 @@ $docSign=$_FILES["doctor_sign"]["tmp_name"];
 
 $imgData=base64_encode(file_get_contents(addslashes($docSign)));
 
-
-
 $sql="INSERT INTO prescription (DoctorName,Qualification,HospitalName,Address,Email,Number,PatientName,Age,Weight,MedicineName,Strength,Dosage,Duration,DoctorSign,AdditionalNotes)
  VALUES('$doctorname','$doctorQual','$hospName','$hospAddress','$email','$number','$patientname','$patientage','$patientWeight','$medicineName','$medStrength','$medPills','$medDuration','$imgData','$notes')";
  if(mysqli_query($link,$sql)){
-     echo "<script>alert('Records added successfully');window.location.href='prescription.html'</script>";
+     echo "<script>alert('Records added successfully');window.location.href='prescription update.php'</script>";
+     $_SESSION["doctor_name"]=$doctorname;
  }
  else{
-     echo '';
+     echo 'Enter the data again';
  }
-}
-else{
-    echo '<script>window.location.href("index.html")</script>';
-}
+
 ?>
