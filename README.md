@@ -7,7 +7,7 @@ The appointed doctor enters their own details and then the relevent details of t
 As the doctor submits this form, a downloadable copy of the prescription is available.
 
 ## Installation
-No special commands needed; any code editor that can run HTML, CSS and PFP will be able to execute this file.
+No special commands needed; any code editor that can run HTML, CSS and PHP will be able to execute this file.
 
 ## Authors and Contributors
 [Ovee Jawdekar](https://www.github.com/oveee) ,
